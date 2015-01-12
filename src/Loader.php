@@ -9,14 +9,14 @@ class Loader
 
     protected $data;
 
-    public function __construct()
+    public function __construct( $root_path = 'src' )
     {
         $this->base = \Kizilare\Framework\App::getInstance()->getConfig( 'base' );
         $this->data['BASE'] = $this->base;
 
         \Twig_Autoloader::register();
 
-        $loader = new \Twig_Loader_Filesystem( 'src' );
+        $loader = new \Twig_Loader_Filesystem( $root_path );
         $this->twig = new \Twig_Environment( $loader );
 
         $base_dir = dirname( $_SERVER['SCRIPT_FILENAME'] );
