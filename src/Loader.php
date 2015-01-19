@@ -11,7 +11,7 @@ class Loader
 
     public function __construct( $root_path = 'src' )
     {
-        $this->base = \Kizilare\Framework\App::getInstance()->getConfig( 'base' );
+        $this->base = \Kizilare\Framework\Config::getInstance()->get( 'base' );
         $this->data['BASE'] = $this->base;
 
         \Twig_Autoloader::register();
